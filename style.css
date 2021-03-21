@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+main{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bin {
+    margin-right: 20px;
+    padding: 7px;
+    border-radius: 50px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.out{
+    background-color: red;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -7px;
+    right: -10px;
+}
+
+.bin:focus, .bin:active{
+    outline: none;
+}
+
+.bin:hover{
+    background-color: #000;
+    color: white;
+}
+
+.bin:active{
+    background-color: #808080;
+    color: black;
+}
+
+.goods-list{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods-item{
+    width: 150px;
+    height: 100px;
+    padding: 10px 0;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total {
+    padding: 40px 0;
+}
+
+.total button {
+    padding: 5px 15px;
+}
