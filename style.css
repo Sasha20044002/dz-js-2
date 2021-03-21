@@ -23,6 +23,21 @@ main{
     padding: 7px;
     border-radius: 50px;
     border: 1px solid black;
+    position: relative;
+}
+
+.out{
+    background-color: red;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -7px;
+    right: -10px;
 }
 
 .bin:focus, .bin:active{

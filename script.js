@@ -7,13 +7,14 @@ class BinItem {
 	}
 
 	render() {
-		return `<div class="goods-item"><h3>${this.title}</h3><p>${this.price} RUB</p></div>`
+		return `<div class="goods-item"><h3 class="goods-title">${this.title}</h3><p class="goods-price">${this.price} RUB</p><button class="add">Add</button></div>`
 	}
 }
 
 class Bin {
 	constructor() {
 		this.goods = [];
+		this.cart = [];
 	}
 
 	fetchGoods() {
@@ -45,17 +46,31 @@ class Bin {
 		goodsList.innerHTML = listHtml;
 	}
 
+	addInCart() {
+		const title = document.querySelectorAll('.goods-title');
+		const price = document.querySelectorAll('.goods-price');
+		const btnAdd = document.querySelectorAll('.add');
+		for (let i = 0; i < btnAdd.length; i++) {
+			btnAdd[i].addEventListener('click', () => {
+				const cartItem = new BinItem(title[i].textContent, parseInt(price[i].textContent));
+				this.cart.push(cartItem);
+				console.log(this.cart);
+				document.querySelector('.out').textContent = this.cart.length;
+			})
+		}
+	}
+
 	summ() {
 		let summ = 0;
-		this.goods.forEach(good => {
+		this.cart.forEach(good => {
 			summ += good.price;
 		});
-		const total = document.querySelector('.goods-total');
-		total.textContent = `Total: ${summ} RUB`;
+		document.querySelector('.goods-total').textContent = `Total: ${summ} RUB`;
 	}
 }
 
 const list = new Bin();
 list.fetchGoods();
 list.render();
-document.querySelector('#summ').addEventListener('click', () => list.summ())
+list.addInCart();
+document.querySelector('#summ').addEventListener('click', () => list.summ());
