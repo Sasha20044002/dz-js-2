@@ -7,7 +7,7 @@ class BinItem {
 	}
 
 	render() {
-		return `<div class="goods-item"><h3>${this.title}</h3><p>${this.price} RUB</p><button>Add</button></div>`
+		return `<div class="goods-item"><h3>${this.title}</h3><p>${this.price} RUB</p></div>`
 	}
 }
 
