@@ -39,14 +39,16 @@ main{
     color: black;
 }
 
-.goods-list{
+.goods-list,
+.cart-list{
     width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
-.goods-item{
+.goods-item,
+.basket-item{
     width: 150px;
     height: 100px;
     padding: 10px 0;
