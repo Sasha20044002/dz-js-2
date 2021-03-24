@@ -1,5 +1,23 @@
 const goodsList = document.querySelector('.goods-list');
 
+function makeGETRequest(url, cb) {
+  let xhr;
+
+  if (window.XMLHttpRequest) {
+    xhr = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xhr.onreadychange = () => {
+    if (xhr.readyState === 4) {
+      cb(xhr.responseText);
+    }
+  }
+
+  xhr.open("GET", url);
+  xhr.send();
+}
 class BinItem {
   constructor(title, price) {
     this.title = title;
@@ -17,23 +35,9 @@ class Bin {
   }
 
   fetchGoods() {
-    this.goods = [{
-        title: 'Shirt',
-        price: 150
-      },
-      {
-        title: 'Socks',
-        price: 50
-      },
-      {
-        title: 'Jacket',
-        price: 350
-      },
-      {
-        title: 'Shoes',
-        price: 250
-      }
-    ]
+    makeGETRequest("catalog.json", (goods) => {
+      this.goods = JSON.parse(goods);
+    })
   }
 
   render() {
