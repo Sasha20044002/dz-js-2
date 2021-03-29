@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+    }
+    #regexp-output{
+      margin-bottom: 20px;
+    }
+    #fix-button{
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <span class="source">Source</span>
+  <textarea name="text-source" id="regexp-source" cols="30" rows="10"></textarea>
+  <span class="output">Output</span>
+  <textarea name="text-out" id="regexp-output" re cols="30" rows="10"></textarea>
+  <button id="fix-button">Fix</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
