@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 5</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .goods-item, .basket-item {
+      border: 1px solid black;
+      width: 150px;
+    }
+  </style>
 </head>
+
 <body>
   <div id="vue">
     <header>
-      <input type="text" class="goods-search">
-      <button class="search-button" type="button">Искать</button>
-      <button class="cart-search" type="button">Корзина</button>
+      <input type="text" class="goods-search" @keydown.enter="filterGoods()" v-model="searchLine">
+      <button class="search-button" type="button" @click="filterGoods()">Искать</button>
+      <button class="cart-search" type="button" :class="{ activebutton: isVisibleCart}" @clcik="viewCart()">Корзина</button>
     </header>
     <main>
       <div class="goods-list">
-        <div class="goods-item" v-for="good in filteredGoods">
+        <h3>Товары на продаже</h3>
+        <div class="goods-item" v-for="good in filteredGoods" :id="good.id">
           <h3>{{ good.title }}</h3>
           <p>{{ good.price }}</p>
+          <button :id="good.id" v-on:click="addBasket(event)">Добавить</button>
+        </div>
+        <h3 v-if="filteredGoods.length == 0">Товары не найдены</h3>
+      </div>
+      <div class="basket-list">
+        <h3>Корзина</h3>
+        <div class="basket-item" v-for="good in basketGoods">
+          <button :id="good.id" @click="deleteItem(event)">Удалить</button>
+          <div class="basket-item-info">
+            <h3>{{ good.title }}</h3>
+            <p>{{ good.price }}</p>
+          </div>
         </div>
       </div>
     </main>
   </div>
 
-  <script src='https://cdn.jsdelivr.net/npm/vue@2.6.12'></script>
-  <script src="main.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/vue@2.6.12' defer></script>
+  <script src="main.js" defer></script>
 </body>
+
 </html>
