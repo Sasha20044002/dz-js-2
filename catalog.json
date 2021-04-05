@@ -17,5 +17,15 @@
     "id": 4,
     "title": "Shoes",
     "price": 250
+  },
+  {
+    "id": 5,
+    "title": "T-Shirt",
+    "price": 350
+  },
+  {
+    "id": 6,
+    "title": "Shirt XL",
+    "price": 750
   }
 ]
